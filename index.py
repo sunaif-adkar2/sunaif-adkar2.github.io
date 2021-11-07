@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 # (c) @sunaif_adkar
 
-
-
 import phonenumbers
 from phonenumbers import carrier, geocoder, timezone
 
