@@ -1,45 +1,10 @@
-<!DOCTYPE html>
+import phonenumbers
+from phonenumbers import carrier, geocoder, timezone
 
-<html lang="en" dir="ltr">
-  <head>
-      <!--github : https://github.com/riz4d-->
-      <!--website: https://rizad.ml/ -->
-    <meta charset="utf-8">
-    <title>my clock </title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Clock</h1>
-    <div class="clock">
-      <div class="display">
-</div>
-</div>
-<script>
-      setInterval(function(){
-        const clock = document.querySelector(".display");
-        let time = new Date();
-        let sec = time.getSeconds();
-        let min = time.getMinutes();
-        let hr = time.getHours();
-        let day = 'AM';
-        if(hr > 12){
-          day = 'PM';
-          hr = hr - 12;
-        }
-        if(hr == 0){
-          hr = 12;
-        }
-        if(sec < 10){
-          sec = '0' + sec;
-        }
-        if(min < 10){
-          min = '0' + min;
-        }
-        if(hr < 10){
-          hr = '0' + hr;
-        }
-        clock.textContent = hr + ':' + min + ':' + sec + " " + day;
-      });
-    </script>
-  </body>
-  </html>
+mobileNo=input("Mobile no. with country code:")
+mobileNo=phonenumbers.parse(mobileNo)
+print(timezone.time_zones_for_number(mobileNo))
+print(carrier.name_for_number(mobileNo,"en"))
+print(geocoder.description_for_number(mobileNo,"en"))
+print("Valid Mobile Number:",phonenumbers.is_valid_number(mobileNo))
+print("Checking possibility of Number:",phonenumbers.is_possible_number(mobileNo))
